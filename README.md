@@ -50,7 +50,7 @@ Given six images, we first estimate a pose-accurate SMPL mesh using <a href="htt
     <img src="./assets/table2.png" alt="Logo" width="80%">
 </div>
 
-it is evident that our approach achieves accurate physical structure reconstruction and produces high-fidelity novel-view images from a limited number of input views.
+It is evident that our approach achieves accurate physical structure reconstruction and produces high-fidelity novel-view images from a limited number of input views.
 Even when the number of input views is reduced to four, our method still outperforms most competing approaches.
 
 
