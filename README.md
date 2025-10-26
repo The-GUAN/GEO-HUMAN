@@ -42,9 +42,9 @@ Given six images, we first estimate a pose-accurate SMPL mesh using <a href="htt
 
 ## Ablation Study
 
-- Comparison of the Number of Input Views.
+- ### Comparison of the Number of Input Views.
 <div align="center">
-    <img src="./assets/fig5.png" alt="Logo" width="35%">
+    <img src="./assets/fig5.png" alt="Logo" width="30%">
 </div>
 <div align="center">
     <img src="./assets/table2.png" alt="Logo" width="80%">
@@ -54,20 +54,32 @@ it is evident that our approach achieves accurate physical structure reconstruct
 Even when the number of input views is reduced to four, our method still outperforms most competing approaches.
 
 
-- Comparison of Initialization and Normal Warp.
+- ### Comparison of Initialization and Normal Warp.
 <div align="center">
-  <img src="./assets/fig7.png" alt="Comparison Figure" width="40%" style="display:inline-block; vertical-align: top; margin-right: 20px;"/>
-  <img src="./assets/table3.png" alt="Table Results" width="40%" style="display:inline-block; vertical-align: top;"/>
+    <img src="./assets/fig7.png" alt="Logo" width="50%">
+</div>
+<div align="center">
+    <img src="./assets/table3.png" alt="Logo" width="40%">
 </div>
 
 To validate the effectiveness of our initialization point cloud and Normal Warp, we replaced the initial point cloud with an ellipsoidal point cloud of the same size and an SMPL mesh without Normal Warp. Table demonstrates that an accurate human prior can enhance the quality of human reconstruction and also validates the effectiveness of the Normal Warp.
 
 
-- Comparison of Loss Strategy.
+- ### Comparison of Loss Strategy.
 <div align="center">
-    <img src="./assets/table4.png" alt="Logo" width="40%">
+    <img src="./assets/table4.png" alt="Logo" width="28%">
 </div>
+
 To validate the effectiveness of the normal loss and mask loss, we compare four variants in the final mesh reconstruction: w/o both normal and mask loss, w/o normal loss, w/o mask loss, and our full method. As shown in Table, the results confirm the effectiveness of our loss strategy, demonstrating that the normal and mask loss further optimizes the 2D Gaussian points, enabling Geo-Human to achieve more physically accurate geometry modeling.
+
+
+- ### Comparison of Weighted Fusion.
+<div align="center">
+    <img src="./assets/table5.png" alt="Logo" width="45%">
+</div>
+
+As shown in Table, the effectiveness of our Weighted Fusion strategy is validated by consistently outperforming the single-view TokenHMR baseline across all three metrics. It enables more accurate SMPL mesh estimation and demonstrates improved robustness in handling complex human poses.
+
 
 
 
