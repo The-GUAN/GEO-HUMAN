@@ -37,7 +37,23 @@ we propose Geo-Human, a human reconstruction framework that combines the geometr
 </div>
 Given six images, we first estimate a pose-accurate SMPL mesh using <a href="https://github.com/saidwivedi/TokenHMR">TokenHMR</a>. A surface deformation flow is then computed via normal map alignment (Normal Warp) to generate a coarse clothed mesh. The reconstructed mesh and multi-view masks are used to initialize surface-aligned Gaussian primitives, enabling high-fidelity novel view synthesis and refined human reconstruction.
 
-## visualization results
+## visualization results🎥
+<p align="center" style="margin-bottom: 10px;">
+  <img src="./assets/0003.gif" width="30%" style="border-radius:8px; margin:4px;">
+  <img src="./assets/80.gif" width="30%" style="border-radius:8px; margin:4px;">
+  <img src="./assets/10-29.gif" width="30%" style="border-radius:8px; margin:4px;">
+</p>
+
+<p align="center">
+  <img src="./assets/77-18.gif" width="30%" style="border-radius:8px; margin:4px;">
+  <img src="./assets/1-12.gif" width="30%" style="border-radius:8px; margin:4px;">
+</p>
+
+<p align="center">
+  <em>Visualization of reconstructed humans under sparse views — each example demonstrates our geometry-consistent Gaussian representation.</em>
+</p>
+
+
 
 
 ## Ablation Study
