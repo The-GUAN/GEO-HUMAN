@@ -1,7 +1,7 @@
 <p align="center">
   <h1 align="center" style="font-size: 28px;">
-    GEO-HUMAN: GEOMETRICALLY-GUIDED 3D GAUSSIAN SPLATTING <br/>
-    FOR HIGH-FIDELITY HUMAN RECONSTRUCTION UNDER SPARSE VIEWS
+    Geo-Human: Geometrically-Guided 3D Gaussian Splatting <br/>
+  for High-Fidelity Human Reconstruction Under Sparse Views
   </h1>
 
   <p align="center" style="font-size: 16px;">
