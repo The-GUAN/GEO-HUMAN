@@ -23,7 +23,7 @@ Geo-Human combines mesh priors with 3DGS to reconstruct high-fidelity humans fro
 
 ## News :triangular_flag_on_post:
 
-- [2025/9/28] Both key section code and supplementary experiments are available.
+- [2025/9/28] Both key section codes and supplementary experiments are available.
 
 
 ## Abstract
