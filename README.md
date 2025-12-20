@@ -134,7 +134,7 @@ To validate the effectiveness of the normal loss and mask loss, we compare four 
 <div align="center">
     <img src="./assets/table5.png" alt="Logo" width="45%">
     <p align="center">
-    <b>Table 2:</b> Ablation study on axis-weighted fusion (<i>F<sub>axis</sub></i>) in pose estimation. The reported results are averaged over 50 human samples selected from the Human4DiT and THuman2.0 dataset.
+    <b>Table 5:</b> Ablation study on axis-weighted fusion (<i>F<sub>axis</sub></i>) in pose estimation. The reported results are averaged over 50 human samples selected from the Human4DiT and THuman2.0 dataset.
 </p>
 </div>
 
