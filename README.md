@@ -24,6 +24,7 @@ Geo-Human combines mesh priors with 3DGS to reconstruct high-fidelity humans fro
 ## News :triangular_flag_on_post:
 
 - [2025/9/28] Both key section codes and supplementary experiments are available.
+- [2025-12-20] We have updated the **Supplementary Materials**.
 
 
 ## Abstract
@@ -53,7 +54,38 @@ Given six images, we first estimate a pose-accurate SMPL mesh using <a href="htt
   <em>Visualization of reconstructed humans under sparse views — each example demonstrates our geometry-consistent Gaussian representation.</em>
 </p>
 
+## Experiments
+- ### Total loss.
+Incorporating the above mask loss and normal loss, our method ultimately optimizes the following weighted total loss function:
 
+L_total = L_rgb + λ1 L_s + λ2 L_sv-geo + λ3 L_mv-rgb  
+　　　　+ λ4 L_mv-geo + λ5 L_mask + λ6 L_normal
+
+The total loss function includes the photometric reconstruction loss L_rgb, the Gaussian flattening loss L_s, the single-view geometric loss L_sv-geo, the multi-view photometric consistency loss L_mv-rgb, the multi-view geometric consistency loss L_mv-geo, and the proposed mask loss L_mask for additional supervision.
+
+The normal loss is applied starting from the 7000th iteration.
+
+The weights are empirically set as:
+- λ1 = 100  
+- λ2 = 0.01  
+- λ3 = 0.2  
+- λ4 = 0.05  
+- λ5 = 0.8  
+- λ6 = 0.015  
+
+Higher weights are assigned to geometry-critical terms (L_s, L_mask), while lower weights are used for auxiliary regularizers.
+
+- ### Efficiency.
+
+<div align="center">
+    <img src="./assets/fig9.png" alt="Logo" width="30%">
+    <p align="center">
+        <b>Table 1:</b> Quantitative Comparison of Training Time. 
+        <i>*: with the number of iterations set to 1,4000.</i>
+    </p>
+</div>
+
+In table 1, Our training speed only requires 16 minutes on a single GPU, while the state-of-the-art method based on Generative Model(eg:GHG ,GPS-Gaussian ) requires over 15 hours.
 
 
 ## Ablation Study
@@ -64,6 +96,9 @@ Given six images, we first estimate a pose-accurate SMPL mesh using <a href="htt
 </div>
 <div align="center">
     <img src="./assets/table2.png" alt="Logo" width="80%">
+    <p align="center">
+      <b>Table 2:</b> Comparison of different input views and training epochs on Human4DiT and THuman2.0.
+  </p>
 </div>
 
 It is evident that our approach achieves accurate physical structure reconstruction and produces high-fidelity novel-view images from a limited number of input views.
@@ -76,6 +111,9 @@ Even when the number of input views is reduced to four, our method still outperf
 </div>
 <div align="center">
     <img src="./assets/table3.png" alt="Logo" width="40%">
+    <p align="center">
+      <b>Table 3:</b> Comparison of different initializations in 6 input views.
+  </p>
 </div>
 
 To validate the effectiveness of our initialization point cloud and Normal Warp, we replaced the initial point cloud with an ellipsoidal point cloud of the same size and an SMPL mesh without Normal Warp. Table demonstrates that an accurate human prior can enhance the quality of human reconstruction and also validates the effectiveness of the Normal Warp.
@@ -84,6 +122,9 @@ To validate the effectiveness of our initialization point cloud and Normal Warp,
 - ### Comparison of Loss Strategy.
 <div align="center">
     <img src="./assets/table4.png" alt="Logo" width="28%">
+    <p align="center">
+    <b>Table 4:</b> Ablation study of loss strategy on Human4DiT. Input views set to 6.
+</p>
 </div>
 
 To validate the effectiveness of the normal loss and mask loss, we compare four variants in the final mesh reconstruction: w/o both normal and mask loss, w/o normal loss, w/o mask loss, and our full method. As shown in Table, the results confirm the effectiveness of our loss strategy, demonstrating that the normal and mask loss further optimizes the 2D Gaussian points, enabling Geo-Human to achieve more physically accurate geometry modeling.
@@ -92,6 +133,9 @@ To validate the effectiveness of the normal loss and mask loss, we compare four 
 - ### Comparison of Weighted Fusion.
 <div align="center">
     <img src="./assets/table5.png" alt="Logo" width="45%">
+    <p align="center">
+    <b>Table 2:</b> Ablation study on axis-weighted fusion (<i>F<sub>axis</sub></i>) in pose estimation. The reported results are averaged over 50 human samples selected from the Human4DiT and THuman2.0 dataset.
+</p>
 </div>
 
 As shown in Table, the effectiveness of our Weighted Fusion strategy is validated by consistently outperforming the single-view TokenHMR baseline across all three metrics. It enables more accurate SMPL mesh estimation and demonstrates improved robustness in handling complex human poses.
